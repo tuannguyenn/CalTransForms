@@ -10,16 +10,20 @@
 
     <!-- Custom CSS for this forms page -->
     <link rel="stylesheet" type="text/css" media="screen" href="forms.css" />
-
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico">
     <title>CalTrans Portal</title>
+    <style type="text/css">
+        h2:hover {
+        background-color: yellow;
+        }
+    </style>
 </head>
-<body>
+
+<body> 
+    
     <div class="container">
-
-
-
         
-
         <nav class="navbar navbar-expand-lg navbar-light text-white rounded" style="background-color:#069;">
                 <a class="navbar-brand" href="#">
                     <img src="images/header-ca.gov.png" alt="CalTrans Logo" />
@@ -52,23 +56,42 @@
         <br>
         <div class="sectionBox">
                 
-            <h2>Section 1: EA Req <button>close</button></h2>
+            <h2>Section 1: Requestor </h2>
+
+            <!-- In this section, we will need Requestor Name to populate a Jane/John Doe.
+                 After that, all the other fields of the form will populate.
+                 Must include this as an example -->
 
             <div class="sectionContents">
-                <form class="form-inline">
-                    <label for="requestor" class="mr-sm-2">Requestor:</label>
-                    <input type="text" class="form-control mr-sm-2 mb-2" placeholder="Requestor Name">
-                    <input type="text" class="form-control mr-sm-2 mb-2" placeholder="Date">
-                    <input type="text" class="form-control mr-sm-2 mb-2" placeholder="Phone">
-                    <input type="text" class="form-control col-1 mb-2 mr-sm-2" placeholder="Unit #">
-                    <input type="text" class="form-control mr-sm-2 mb-2" placeholder="Req Branch Chief">
+                <form>
+                  <div class="row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Requestor Name">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Date">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Phone">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Unit #">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Branch Chief">
+                    </div>
+                    <div class="col">
+                      <input type="text" class="form-control" value="District 12" readonly>
+                    </div>                    
+                  </div>
                 </form>
-                
             </div>
         </div> 
         <br>
         <div class="sectionBox">
-            <h2>Section 2: EA Demo <button>close</button></h2>
+            <h2>Section 2: Project Location Details</h2>
+
+            <!-- In section 2, we need to add the API -->
 
             <div class="sectionContents">
                
@@ -136,7 +159,7 @@
         </div> 
         <br>
         <div class="sectionBox">
-            <h2>Section 3: EA Cost <small class="text-muted">(1,000's)</small> <button>close</button></h2>
+            <h2>Section 3: Project Cost <small class="text-muted">(1,000's)</small> </h2>
 
             <div class="sectionContents">
                 <table class="table table-bordered table-condensed">
@@ -154,19 +177,19 @@
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="State Bridge Cost">
+                            <input id="sbc" type="number" class="form-control" placeholder="State Bridge Cost">
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Local Bridge Cost">
+                            <input id="lbc" type="number" class="form-control" placeholder="Local Bridge Cost">
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Total Bridge Cost">
+                            <input id="tbc" type="number" class="form-control" readonly >
                           </div>
                       </td>
                     </tr>
@@ -175,40 +198,40 @@
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="State District Cost">
+                            <input id="sdc" type="number" class="form-control" placeholder="State District Cost">
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Local District Cost">
+                            <input id="ldc" type="number" class="form-control" placeholder="Local District Cost">
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Total District Cost">
+                            <input id="tdc" type="number" class="form-control" readonly >
                           </div>
                       </td>
                     </tr>
                     <tr>
-                      <td>Total</td>
+                      <td><strong>Sub Total</strong></td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Total State Cost">
+                            <input id="sts" type="number" class="form-control" readonly >
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Total Local Cost">
+                            <input id="stl" type="number" class="form-control" readonly >
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Total Cost">
+                            <input id="stt" type="number" class="form-control" readonly >
                           </div>
                       </td>
                     </tr>
@@ -217,19 +240,19 @@
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="State R/W Cost">
+                            <input id="srwc" type="number" class="form-control" placeholder="State R/W Cost">
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Local R/W Cost">
+                            <input id="lrwc" type="number" class="form-control" placeholder="Local R/W Cost">
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Total R/W Cost">
+                            <input id="trwc" type="number" class="form-control" readonly >
                           </div>
                       </td>
                     </tr>
@@ -238,29 +261,50 @@
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="State Other Cost">
+                            <input id="soc" type="number" class="form-control" placeholder="State Other Cost" >
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Local Other Cost">
+                            <input id="loc" type="number" class="form-control" placeholder="Local Other Cost" >
                           </div>
                       </td>
                       <td>
                           <div class="input-group mb-3">
                             <span class="input-group-text">$</span>
-                            <input type="text" class="form-control" placeholder="Total Other Cost">
+                            <input id="toc" type="number" class="form-control" readonly>
                           </div>
                       </td>
-                    </tr>    
+                    </tr>
+                    <tr>
+                    <td><strong>Grand Total</strong></td>
+                    <td>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input id="gts" type="number" class="form-control" placeholder="Total State Cost" readonly>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input id="gtl" type="number" class="form-control" placeholder="Total Local Cost" readonly>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input id="gtt" type="number" class="form-control"  readonly>
+                        </div>
+                    </td>
+                    </tr>                         
                   </tbody>
                 </table>                
             </div>
         </div> 
-            
+        <br>    
         <div class="sectionBox">
-            <h2>Section 4: EA Programming Documents <button>close</button><br></h2>
+            <h2>Section 4: Programming Documents, Basis of Estimate <br></h2>
             
             <div class="sectionContents">
                 <div class="form-row">
@@ -278,21 +322,14 @@
                     <div class="col-md-3"><input type="checkbox" class="form-check-input">PEER
                     </div>                
                 </div>
-                <div class="form-row">
-                    <div class="col-md-3"><input type="checkbox"  class="mr-sm-2 mb-2">PSP/PR
+                 <div class="form-row">
+                    <div class="col-md-3">
+                        <input type="checkbox" class="mr-sm-2 mb-2">PSP/PR
                     </div>
-                    <div class="col-md-3"><input type="checkbox" class="form-check-input">
-                    <input type="text" class="form-control" placeholder="">
+                    <div class="col-md-3"><input type="checkbox" class="form-check-input">PSSR
                     </div>                
                 </div>
-                <div class="form-row">
-                    <div class="col-md-3"><input type="checkbox"  class="mr-sm-2 mb-2">PSSR
-                    </div>
-                    <div class="col-md-3"><input type="checkbox" class="form-check-input">
-                    <input type="text" class="form-control" placeholder="">
-                    </div>                
-                </div>
-
+                
                 <br>
 
                 <div class="input-group mb-3">
@@ -303,387 +340,267 @@
                   <div class="input-group-append">
                     <span class="input-group-text" id="">Upload</span>
                   </div>
-                </div>                
+                </div>
+                
+                <button>Add Forms</button>
+                <br>
                 
             </div>
             
         </div> 
         <br>        
         <div class="sectionBox">
-            <h2>Section 5: Phases <button>close</button></h2>
+            <h2>Section 5: Project Phases - SB45 Components</h2>
 
             <div class="sectionContents">
-                <p>Indicate who will prepare the item Caltrans, a Caltrans Consultant, OCTA, Local Agency</p>
-                <form class="form-inline" role="form">
-                    <label for="PID" class="mb-2 mr-sm-2">PID (K)</label>
-                    <input type="fundsSource" class="form-control col-4 mb-2 mr-sm-2" id="STIP" placeholder="Indicate who will prepare the item">
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Yes
-                              </label>
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">No
-                              </label>
-                        </div>
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="PID" class="mb-2 mr-sm-2">PA & ED(C)</label>
-                    <input type="fundsSource" class="form-control col-4 mb-2 mr-sm-2" id="STIP" placeholder="Indicate who will prepare the item">
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Yes
-                              </label>
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">No
-                              </label>
-                        </div>
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="PID" class="mb-2 mr-sm-2">PS & E(1)</label>
-                    <input type="fundsSource" class="form-control col-4 mb-2 mr-sm-2" id="STIP" placeholder="Indicate who will prepare the item">
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Yes
-                              </label>
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">No
-                              </label>
-                        </div>
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="PID" class="mb-2 mr-sm-2">RW(2)</label>
-                    <input type="fundsSource" class="form-control col-4 mb-2 mr-sm-2" id="STIP" placeholder="Indicate who will prepare the item">
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Yes
-                              </label>
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">No
-                              </label>
-                        </div>
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="PID" class="mb-2 mr-sm-2">CON</label>
-                    <input type="fundsSource" class="form-control col-4 mb-2 mr-sm-2" id="STIP" placeholder="Indicate who will prepare the item">
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Yes
-                              </label>
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">No
-                              </label>
-                        </div>
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="PID" class="mb-2 mr-sm-2">PS&E (1)</label>
-                    <input type="fundsSource" class="form-control col-4 mb-2 mr-sm-2" id="STIP" placeholder="Indicate who will prepare the item">
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Yes
-                              </label>
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">No
-                              </label>
-                        </div>
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="PID" class="mb-2 mr-sm-2">CON(3)</label>
-                    <input type="fundsSource" class="form-control col-4 mb-2 mr-sm-2" id="STIP" placeholder="Indicate who will prepare the item">
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">Yes
-                              </label>
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">No
-                              </label>
-                        </div>
-                </form>
-                
-            </div>
-        </div> 
-        <br>
-        <div class="sectionBox">
-            <h2>Section 6: EA Dates <button>close</button></h2>
-
-            <div class="sectionContents">
-                
-                <p>Milestone   Target Dates</p>
-                <form class="form-inline" role="form">
-                    <label for="PSR" class="mb-2 mr-sm-2">PSR</label>
-                    <input type="Date" class="form-control col-2 mb-2 mr-sm-2" id="PSR" placeholder="Date">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="paAndEd" class="mb-2 mr-sm-2">PA & ED</label>
-                    <input type="Date" class="form-control col-2 mb-2 mr-sm-2" id="paAndEd" placeholder="Date">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="PSandEtoHC" class="mb-2 mr-sm-2">PS 4E to HC</label>
-                    <input type="Date" class="form-control col-2 mb-2 mr-sm-2" id="PSandEtoHC" placeholder="Date">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="Advertise" class="mb-2 mr-sm-2">Advertise</label>
-                    <input type="Date" class="form-control col-2 mb-2 mr-sm-2" id="PSR" placeholder="Date">
-                </form>
                 
                 <form>
-                  <div class="form-row align-items-center">
-                    <div class="col-auto my-1">
-                      <label class="mr-sm-2" for="inlineFormCustomSelect">Environmental Report</label>
-                      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                        <option selected>CE/EX</option>
-                        <option value="1">CE</option>
-                        <option value="2">EX</option>
-                        <option value="3">Both</option>
-                      </select>
-                      <form class="form-inline" role="form">
-                            <input type="Date" class="form-control" id="PSR" placeholder="Date">
-                      </form>
-                    </div>
-                    
-                    <div class="col-auto my-1">
-                      <label class="mr-sm-2" for="inlineFormCustomSelect">Environmental Report</label>
-                      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                        <option selected>ND/FI</option>
-                        <option value="1">ND</option>
-                        <option value="2">FI</option>
-                        <option value="3">Both</option>
-                      </select>
-                      <form class="form-inline" role="form">
-                            <input type="Date" class="form-control" id="PSR" placeholder="Date">
-                      </form>
-                    </div>
-                    
-                    <div class="col-auto my-1">
-                      <label class="mr-sm-2" for="inlineFormCustomSelect">Environmental Report</label>
-                      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                        <option selected>ER/ES</option>
-                        <option value="1">ER</option>
-                        <option value="2">ES</option>
-                        <option value="3">Both</option>
-                      </select>
-                      <form class="form-inline" role="form">
-                            <input type="Date" class="form-control" id="PSR" placeholder="Date">
-                      </form>
-                    </div>
-                    
+                 
+                  <h4>District</h4>
+                  
+                  <div class="row">
+                      <div class="col"> <label class="mr-sm-2">Phase</label> </div>
+                      <div class="col"> <label class="mr-sm-2">Implementing Agency</label> </div>
+                      <div class="col"> <label class="mr-sm-2">Reimburse Workload?</label></label></div>
+                      <div class="col"></div>
                   </div>
+                  
+                  <div class="row">
+                        <div class="col">
+                          <select class="custom-select mr-sm-2">
+                            <option selected>Choose Type</option>
+                            <option value="1">PID</option>
+                            <option value="2">PA & ED</option>
+                            <option value="3">PS & E</option>
+                            <option value="4">RW</option>
+                            <option value="5">CON</option>
+                          </select>
+                        </div>
+                          <div class="col">
+                             
+                                    <input type="Agency" class="form-control" placeholder="Enter Agency">
+                             
+                          </div>
+                          
+                          <div class="col">
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" value="option1">
+                                  <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                  <label class="form-check-label" for="inlineRadio2">No</label>
+                              </div>
+                          </div>
+                          
+                          <div class="col">
+                             <button class="add-phase1">Add Phase</button> 
+                          </div>  
+                   </div>
+                </form>
+                <br>
+                
+                <h4>DES</h4>
+                  
+                  <div class="row">
+                      <div class="col"> <label class="mr-sm-2">Phase</label> </div>
+                      <div class="col"> <label class="mr-sm-2">Implementing Agency</label> </div>
+                      <div class="col"> <label class="mr-sm-2">Reimburse Workload?</label></label></div>
+                      <div class="col"></div>
+                  </div>
+                  
+                  <div class="row">
+                        <div class="col">
+                          <select class="custom-select mr-sm-2">
+                            <option selected>Choose Type</option>
+                            <option value="1">PS&E</option>
+                            <option value="2">CON</option>
+                          </select>
+                        </div>
+                          <div class="col">
+                             <form class="form-inline" role="form">
+                                    <input type="Agency" class="form-control" placeholder="Enter Agency">
+                             </form> 
+                          </div>
+                          
+                          <div class="col">
+                              <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                  <label class="form-check-label" for="inlineRadio1">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                  <label class="form-check-label" for="inlineRadio2">No</label>
+                              </div>
+                          </div>
+                          
+                          <div class="col">
+                             <button class="add-phase2">Add Phase</button> 
+                          </div>  
+                   </div>
                 </form>
             </div>
         </div> 
-        <br>                
+        
+        <br>
+        
         <div class="sectionBox">
-            <h2>Section 7: EA Fund <button>close</button></h2>
+            <h2>Section 6: Project Milestone Dates </h2>
 
             <div class="sectionContents">
-                <p>Program Type    Fund Source     Fund %</p>
-                <form class="form-inline" role="form">
-                    <label for="STIP" class="mb-2 mr-sm-2">STIP</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
+                <form>
+                  
+                  <div class="row">
+                      <div class="col"> <label class="mr-sm-2">Type</label> </div>
+                      <div class="col"> <label class="mr-sm-2">Target Date</label> </div>
+                      <div class="col"></div>
+                  </div>
+                  
+                  <div class="row">
+                        <div class="col">
+                          <select class="custom-select mr-sm-2">
+                            <option selected>Choose Type</option>
+                            <option value="1">PSR</option>
+                            <option value="2">PA & ED</option>
+                            <option value="3">PS 4E to HC</option>
+                            <option value="4">Advertise</option>
+                          </select>
                         </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="STIP" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="STIP" placeholder="Funds %">
+                          <div class="col">
+                            <input type="Date" class="form-control" placeholder="Date">
+                          </div>
+                          <div class="col">
+                             <button class="add-milestone1">Add Milestone</button> 
+                          </div>  
+                   </div>
                 </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="SHOPP" class="mb-2 mr-sm-2">SHOPP</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
+                <br>
+                <form>
+                  <div class="row">
+                      <div class="col"> <label>Environmental Report</label> </div>
+                      <div class="col"> <label>Target Date</label> </div>
+                      <div class="col"></div>
+                  </div>
+                  <div class="row">
+                        <div class="col">
+                          <select class="custom-select mr-sm-2">
+                            <option selected>Choose Environmental Report</option>
+                            <option value="1">CE/EX</option>
+                            <option value="2">ND/FI</option>
+                            <option value="3">ER/ES</option>
+                          </select>
                         </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="SHOPP" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="SHOPP" placeholder="Funds %">
+                          <div class="col">
+                            <input type="Date" class="form-control" id="PSR" placeholder="Date">
+                          </div>
+                          <div class="col">
+                             <button class="add-report">Add Report</button> 
+                          </div>  
+                   </div>
                 </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="TCRF" class="mb-2 mr-sm-2">TCRF</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="TCRF" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="TCRF" placeholder="Funds %">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="BOND" class="mb-2 mr-sm-2">BOND (CMIA)</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="BOND" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="BOND" placeholder="Funds %">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="MEASURE RIM" class="mb-2 mr-sm-2">Measure Rim</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="MEASURE RIM" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="MEASURE RIM" placeholder="Funds %">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="Local" class="mb-2 mr-sm-2">Local</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="Local" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="Local" placeholder="Funds %">
-                </form>
-                    
-                <form class="form-inline" role="form">
-                    <label for="Toll" class="mb-2 mr-sm-2">Toll</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="Toll" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="Toll" placeholder="Funds %">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="minorA" class="mb-2 mr-sm-2">Minor A</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="minorA" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="minorA" placeholder="Funds %">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="minorB" class="mb-2 mr-sm-2">Minor B</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="minorB" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="minorB" placeholder="Funds %">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="recruit" class="mb-2 mr-sm-2">Recruit</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="recruit" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="recruit" placeholder="Funds %">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="directorOrders" class="mb-2 mr-sm-2">Director Orders</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="directorOrders" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="directorOrders" placeholder="Funds %">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="maintenance" class="mb-2 mr-sm-2">Maintenance</label>
-                        <div class="form-check form-check-inline">
-                              <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                              </label>
-                        </div>
-                    <input type="fundsSource" class="form-control col-2 mb-2 mr-sm-2" id="maintenance" placeholder="Funds Source">
-                    <input type="fundsPercentage" class="form-control col-2 mb-2 mr-sm-2" id="maintenance" placeholder="Funds %">
-                </form>
-                
             </div>
         </div> 
-        <br>                    
+        
+        <br>            
+        
         <div class="sectionBox">
-            <h2>Section 8: EA Responsible Party <button>close</button></h2>
+            <h2>Section 7: Project Funding </h2>
 
             <div class="sectionContents">
-                <form class="form-inline" role="form">
-                    <label for="" class="mb-2 mr-sm-2">Project Advisor</label>
-                    <input type="name" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Enter Name">
-                    <input type="days" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Days in Queue">
-                    <input type="backups" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Back Ups or Alts">
-                    <input type="signature" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Signature">
-                    <input type="date" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Date">
+                <form>
+                  
+                  <div class="row">
+                      <div class="col"> <label>Program Type</label> </div>
+                      <div class="col"> <label>Fund Source</label> </div>
+                      <div class="col"> <label>Fund %</label> </div>
+                      <div class="col"></div>
+                  </div>
+                  
+                  <div class="row">
+                        <div class="col">
+                          <select class="custom-select mr-sm-2">
+                            <option selected>Choose Program Type</option>
+                            <option value="1">BOND(CMIA)</option>
+                            <option value="2">Director's Orders</option>
+                            <option value="3">Local</option>
+                            <option value="4">Maintenance</option>
+                            <option value="5">Measure</option>
+                            <option value="6">Minor A</option>
+                            <option value="7">Minor B</option>
+                            <option value="8">Permit</option>
+                            <option value="9">SHOPP</option>
+                            <option value="10">STIP</option>
+                            <option value="11">TCRF</option>
+                            <option value="12">Toll</option>
+                          </select>
+                        </div>
+                          <div class="col">
+                            <input type="fundsSource" class="form-control" placeholder="Enter Funds Source">
+                          </div>
+                          
+                          <div class="col">
+                            <input type="fundsPercentage" class="form-control" placeholder="Enter Funds %">
+                          </div>
+                          
+                          <div class="col">
+                            <button class="add-funding">Add Funding</button> 
+                          </div>  
+                   </div>
                 </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="projectManager" class="mb-2 mr-sm-2">Project Manager</label>
-                    <input type="name" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Enter Name">
-                    <input type="days" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Days in Queue">
-                    <input type="backups" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Back Ups or Alts">
-                    <input type="signature" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Signature">
-                    <input type="date" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Date">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="design" class="mb-2 mr-sm-2">Design</label>
-                    <input type="name" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Enter Name">
-                    <input type="days" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Days in Queue">
-                    <input type="backups" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Back Ups or Alts">
-                    <input type="signature" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Signature">
-                    <input type="date" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Date">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="resMgmt" class="mb-2 mr-sm-2">Res Mgmt</label>
-                    <input type="name" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Enter Name">
-                    <input type="days" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Days in Queue">
-                    <input type="backups" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Back Ups or Alts">
-                    <input type="signature" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Signature">
-                    <input type="date" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Date">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="programManager" class="mb-2 mr-sm-2">Program Manager</label>
-                    <input type="name" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Enter Name">
-                    <input type="days" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Days in Queue">
-                    <input type="backups" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Back Ups or Alts">
-                    <input type="signature" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Signature">
-                    <input type="date" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Date">
-                </form>
-                
-                <form class="form-inline" role="form">
-                    <label for="planningManager" class="mb-2 mr-sm-2">Planning Manager</label>
-                    <input type="name" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Enter Name">
-                    <input type="days" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Days in Queue">
-                    <input type="backups" class="form-control col-1 mb-2 mr-sm-2" id="" placeholder="Back Ups or Alts">
-                    <input type="signature" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Signature">
-                    <input type="date" class="form-control col-2 mb-2 mr-sm-2" id="" placeholder="Date">
-                </form>
-                
-                </div>
             </div>
+        </div> 
+        
+        <br>
+        
+        <div class="sectionBox">
+            <h2>Section 8: Management Approvals</h2>
+            <div class="sectionContents">
+                <form>
+                  
+                  <div class="row">
+                      <div class="col"> <label>Management Type</label> </div>
+                      <div class="col"> <label>Name</label> </div>
+                      <div class="col"> <label>Signature</label> </div>
+                      <div class="col"> <label>Date</label> </div>
+                      <div class="col"></div>
+                  </div>
+                  
+                  <div class="row">
+                        <div class="col">
+                          <select class="custom-select mr-sm-2">
+                            <option selected>Choose Type</option>
+                            <option value="1">Program Advisor</option>
+                            <option value="2">Project Manager</option>
+                            <option value="3">Design Manager</option>
+                            <option value="4">Resource Manager</option>
+                            <option value="5">Program Manager</option>
+                            <option value="6">Planning Manager</option>
+                          </select>
+                        </div>
+                          <div class="col">
+                            <input type="Name" class="form-control" placeholder="Name">
+                          </div>
+                          
+                          <div class="col">
+                            <input type="Signature" class="form-control" placeholder="Signature">
+                          </div>
+                          
+                          <div class="col">
+                            <input type="Date" class="form-control" id="PSR" placeholder="Date">
+                          </div>
+                          
+                          <div class="col">
+                             <button class="add-manager">Add Manager</button> 
+                          </div>  
+                   </div>
+                </form>
+                
+            </div>
+        </div>
         <br>
                                 
         <div class="sectionBox">
-            <h2>Section 9: Remarks <button>close</button></h2>
+            <h2>Section 9: Remarks </h2>
 
             <div class="sectionContents">
               <form action="/action_page.php">
@@ -695,30 +612,10 @@
               </form>
             
             <br>
-            
-            <!-- center the buttons later 
-            
-            <button type="button" class="btn btn-secondary btn-lg">Back</button>
-            <button type="button" class="btn btn-primary  btn-lg">Save</button>
-            <button type="button" class="btn btn-primary btn-lg">Next</button>
-            -->
-            
-    <div class="row text-center">
-  <div class='col-md-4'>
-    <div><a href="#"><button type="button" class="btn btn-secondary btn-lg">Back</button></a></div>
-  </div>
-
-  <div class='col-md-4'>
-    <div><a href="#"><button type="button" class="btn btn-primary btn-lg"id="target1">Save</button></a></div>
-  </div>
-  <div class='col-md-4'>
-    <div><a href="#"><button type="button" class="btn btn-primary btn-lg">Next</button></a></div>
-  </div>
-</div>              
-              
-              
             </div>
-        </div>                                 
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success btn-lg btn-block">Save</button>
     </div>
 
 
